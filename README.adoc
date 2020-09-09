@@ -1,0 +1,84 @@
+= Latexmath.js
+
+== Purpose
+
+Latexmath.js is a converter that takes LaTeX math formulas and outputs
+MathML.
+
+== Usage
+
+Install
+~~~~~~~~
+* Download
+https://github.com/plurimath/latexmath-js/blob/master/dist/latexmath.js[Latexmath.js ^]
+https://github.com/plurimath/latexmath-js/blob/master/dist/latexmath.min.js[(or a minified version) ^]
+directly.
+* Or in the terminal, you can clone the repository:
++
+[source,shell]
+--------------
+$ git clone https://github.com/plurimath/latexmath-js.git
+$ cd latexmath.js/dist/
+--------------
+
+How to use
+~~~~~~~~~~
+* Add a <script> tag in your HTML:
++
+[source,html]
+-------------
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="path/to/latexmath.js"></script>
+  </head>
+  <body>
+  </body>
+  <script>
+    // here you can use latexmath.js
+  </script>
+</html>
+-------------
+
+* Convert a LaTeX math formula to MathML
++
+[source,javascript]
+-------------------
+<script>
+    var latex = "$$f_i =  \sum_{j=1}^2 s_{ij} n_j \quad {\rm for} \quad i = 1,2$$";
+    var mathml = Opal.Latexmath.$parse(latex).$to_mathml();
+</script>
+-------------------
+
+=== Usage from Node
+NOTE: Latexmath is not bundled as a well-behaved module yet; requiring it defines a global `Opal` identifier.
+
+Install:
+
+[source,sh]
+--
+yarn add latexmath
+--
+
+Use:
+
+[source,javascript]
+--
+require('latexmath');
+
+const latex = "$$f_i =  \sum_{j=1}^2 s_{ij} n_j \quad {\rm for} \quad i = 1,2$$";
+const mathml = Opal.Latexmath.$parse(latex).$to_mathml();
+console.log(mathml);
+--
+
+=== Demo
+The demo is included in the repository.
+
+== Development
+Latexmath.js is generated through Opal on the `latexmath` gem in Ruby.
+
+=== Release process
+Bump version in package.json; call `rake`, commit and tag the repo appropriately; push to Github and call `npm publish`.
+
+TODO: Redo build process, generate JS as build artifact and bundle the code for browser and Node with proper use of exports.

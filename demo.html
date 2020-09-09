@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Latexmath.js demo</title>
+  <style>
+    div { display: flex; justify-content: space-around; }
+    textarea { height: 60vh; width: 45%; margin-bottom: 30px; }
+    button { margin-left: 10%; width: 80%; padding: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Latexmath.js demo</h1>
+
+  <div>
+    <textarea id='input'>$$f_i =  \sum_{j=1}^2 s_{ij} n_j \quad {\rm for} \quad i = 1,2$$</textarea>
+    <textarea id='output' disabled></textarea>
+  </div>
+
+  <button id='convert'>Convert</button>
+
+  <script src='dist/latexmath.min.js'></script>
+
+  <script>
+    var input = document.getElementById('input');
+    var output = document.getElementById('output');
+    var button = document.getElementById('convert');
+
+    function convert() {
+      output.value = Opal.Latexmath.$parse(input.value).$to_mathml();
+      return false;
+    }
+
+    button.addEventListener("click", convert);
+    convert();
+  </script>
+</body>
+</html>
