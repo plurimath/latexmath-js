@@ -1,0 +1,13 @@
+{
+  "name": "latexmath",
+  "version": "1.0.0",
+  "description": "LatexMath JS bindings (Opal-generated)",
+  "main": "dist/latexmath.js",
+  "repository": "git@github.com:interscript/latexmath-js.git",
+  "author": "Ribose Inc. <open.source@ribose.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {}
+}
