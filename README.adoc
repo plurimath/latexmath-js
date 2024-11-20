@@ -1,3 +1,5 @@
+## DEPRECATION NOTICE: This repository is no longer maintained. Please visit link:https://github.com/plurimath/plurimath-js[Plurimath-JS] for the latest updates and features.
+
 = Latexmath.js
 
 == Purpose
